@@ -38,10 +38,10 @@ class Mundo {
     static boolean getInput(int[] posicion) {
         String movement = "" + new Scanner(System.in).nextLine().charAt(0);
         switch (movement) {
-            case "a" -> posicion[0] = posicion[0] - 1;
-            case "d" -> posicion[0] = posicion[0] + 1;
-            case "w" -> posicion[1] = posicion[1] - 1;
-            case "s" -> posicion[1] = posicion[1] + 1;
+            case "w" -> posicion[0] = posicion[0] - 1;
+            case "s" -> posicion[0] = posicion[0] + 1;
+            case "a" -> posicion[1] = posicion[1] - 1;
+            case "d" -> posicion[1] = posicion[1] + 1;
             case "q" -> {return false;}
             default -> {}
         };
