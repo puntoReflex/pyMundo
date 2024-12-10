@@ -2,7 +2,7 @@ package vPRG1;
 
 class Mundo {
     public static void main(String[] args) {
-        int[][] mapa = {
+        int[][] miniMap = {
                 { 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 },
                 { 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 3, 3, 3, 3, 3, 3, 3, 3 },
                 { 7, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 7, 3, 3, 3, 3 },
@@ -23,15 +23,31 @@ class Mundo {
                 { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 6, 6, 8, 8, 8, 8, 1, 0, 0, 0 },
                 { 7, 7, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 6, 6, 8, 8, 8, 8, 1, 0, 5, 0 }
         };
-        printMap(mapa);
+        printMap(miniMap);
     }
 
-    static void printMap(int[][] mapa) {
-        for (int fila = 0; fila < mapa.length; fila++) {
-            for (int columna = 0; columna < mapa[fila].length; columna++) {
-                System.out.print(mapa[fila][columna]);
+    static void printMap(int[][] map) {
+        for (int row = 0; row < map.length; row++) {
+            for (int column = 0; column < map[row].length; column++) {
+                System.out.print(parse(map[row][column]));
             }
             System.out.println();
         }
+    }
+
+    static String parse(int value){
+        return switch(value){
+            case 0 -> "   ";
+            case 1 -> "[#]";
+            case 2 -> " · ";
+            case 3 -> "~ ~";
+            case 4 -> "'''";
+            case 5 -> ":::"; 
+            case 6 -> ", '";
+            case 7 -> "/^\\";
+            case 8 -> "^Y^";
+            case 9 -> ":|:";
+            default -> "???";
+        };
     }
 }
