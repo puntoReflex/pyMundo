@@ -42,7 +42,7 @@ class MundoConSwitch {
         if (movement.equalsIgnoreCase("s")) posicion[0] = posicion[0] + 1;
         if (movement.equalsIgnoreCase("a")) posicion[1] = posicion[1] - 1;
         if (movement.equalsIgnoreCase("d")) posicion[1] = posicion[1] + 1;
-        if (movement.equalsIgnoreCase("q")) return false;
+        if (movement.equalsIgnoreCase("ñ")) return false;
         return true;
     }
 

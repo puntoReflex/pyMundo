@@ -42,7 +42,7 @@ class MundoConSwitch {
             case "s" -> posicion[0] = posicion[0] + 1;
             case "a" -> posicion[1] = posicion[1] - 1;
             case "d" -> posicion[1] = posicion[1] + 1;
-            case "q" -> {return false;}
+            case "ñ" -> {return false;}
             default -> {}
         };
         return true;
