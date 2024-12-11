@@ -37,7 +37,7 @@ class MundoConSwitch {
 
     static boolean getInput(int[] posicion) {
         
-        String movement = "" + new Scanner(System.in).nextLine().charAt(0);
+        String movement = "" + new Scanner(System.in).next().charAt(0);
         if (movement.equalsIgnoreCase("w")) posicion[0] = posicion[0] - 1;
         if (movement.equalsIgnoreCase("s")) posicion[0] = posicion[0] + 1;
         if (movement.equalsIgnoreCase("a")) posicion[1] = posicion[1] - 1;

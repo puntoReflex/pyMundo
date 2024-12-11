@@ -36,7 +36,7 @@ class MundoConSwitch {
     }
 
     static boolean getInput(int[] posicion) {
-        String movement = "" + new Scanner(System.in).nextLine().charAt(0);
+        String movement = "" + new Scanner(System.in).next().charAt(0);
         switch (movement) {
             case "w" -> posicion[0] = posicion[0] - 1;
             case "s" -> posicion[0] = posicion[0] + 1;

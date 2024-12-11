@@ -25,7 +25,7 @@ class Mundo {
                 { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 6, 6, 8, 8, 8, 8, 1, 0, 0, 0 },
                 { 7, 7, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 6, 6, 8, 8, 8, 8, 1, 0, 5, 0 }
         };
-        int[] posicion = {5, 5};
+        int[] posicion = { 5, 5 };
         boolean isPlaying = true;
 
         do {
@@ -36,13 +36,17 @@ class Mundo {
     }
 
     static boolean getInput(int[] posicion) {
-        String movement = "" + new Scanner(System.in).nextLine().charAt(0);
+        String movement = "" + new Scanner(System.in).next().charAt(0);
         switch (movement) {
             case "w" -> posicion[0] = posicion[0] - 1;
             case "s" -> posicion[0] = posicion[0] + 1;
             case "a" -> posicion[1] = posicion[1] - 1;
             case "d" -> posicion[1] = posicion[1] + 1;
-            case "ñ" -> {return false;}
+            case "q" -> { posicion[0] = posicion[0] - 1; posicion[1] = posicion[1] - 1; }
+            case "e" -> { posicion[0] = posicion[0] - 1; posicion[1] = posicion[1] + 1; }
+            case "z" -> { posicion[0] = posicion[0] + 1; posicion[1] = posicion[1] - 1; }
+            case "c" -> { posicion[0] = posicion[0] + 1; posicion[1] = posicion[1] + 1; }
+            case "ñ" -> { return false; }
             default -> {}
         };
         return true;
@@ -50,6 +54,10 @@ class Mundo {
 
     static void printMap(int[][] map, int[] posicion) {
         final int HERO = 99;
+        final int LINE = 100;
+        final int MAP_WIDTH = getMapWidth(map);
+
+        System.out.println(parse(LINE).repeat(MAP_WIDTH));
         for (int row = 0; row < map.length; row++) {
             for (int column = 0; column < map[row].length; column++) {
                 if (row == posicion[0] && column == posicion[1]) {
@@ -61,7 +69,16 @@ class Mundo {
             }
             System.out.println();
         }
+        System.out.println(parse(LINE).repeat(MAP_WIDTH));
     }
+
+    private static int getMapWidth(int[][] map) {
+        int width=0;
+        for (int row = 0; row < map.length; row++) 
+            for (int column = 0; column < map[row].length; column++)
+                width = map[row].length>width?map[row].length:width;
+        return width;
+    }   
 
     static String parse(int value) {
         return switch (value) {
@@ -76,6 +93,7 @@ class Mundo {
             case 8 -> "^Y^";
             case 9 -> ":|:";
             case 99 -> "_O_";
+            case 100 -> "---";
             default -> "???";
         };
     }
